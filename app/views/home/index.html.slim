@@ -1,0 +1,14 @@
+nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+  .container
+    a.navbar-brand href=("<%= root_path %>")  TokBoxStream
+    ul.nav.navbar-nav
+      li.nav-item.active
+    ul.nav.navbar-nav.pull-xs-right
+      - if signed_in?
+        li.nav-item
+          = link_to "Sign out (\#{current_user.email})", destroy_user_session_path, class: 'nav-link', method: 'delete' 
+      - else
+        li.nav-item
+          span.nav-link
+            = link_to "Sign Up", new_user_registration_path, class: 'btn btn-default' 
+            = link_to "Sign in", new_user_session_path, class: '' 

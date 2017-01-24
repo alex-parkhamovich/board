@@ -14,6 +14,10 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'devise-bootstrap-views'
+
+gem 'slim'
+gem 'slim-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
