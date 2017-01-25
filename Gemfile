@@ -16,6 +16,8 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'simple_form'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 gem 'slim'
 gem 'slim-rails'
@@ -23,6 +25,8 @@ gem 'slim-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

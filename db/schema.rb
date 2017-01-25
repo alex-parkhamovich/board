@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124153606) do
+ActiveRecord::Schema.define(version: 20170125184118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,19 @@ ActiveRecord::Schema.define(version: 20170124153606) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "type"
-    t.decimal  "price"
-    t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "deal"
+    t.integer  "price"
+    t.string   "status",             default: "new"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.index ["category_id"], name: "index_posts_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +56,6 @@ ActiveRecord::Schema.define(version: 20170124153606) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "posts", "categories"
+  add_foreign_key "posts", "users"
 end
