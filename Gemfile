@@ -13,8 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 
 gem 'devise'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'slim'
 gem 'slim-rails'
