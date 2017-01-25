@@ -3,6 +3,8 @@
   .panel-heading
     h4
       = t('.resend_unlock_instructions', default: 'Resend unlock instructions')
+      .pull-right
+        = link_to 'Home', root_path
   .panel-body
     = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, html: { role: "form" } }) do |f|
       .form-group

@@ -3,6 +3,8 @@
   .panel-heading
     h4
       = t('.forgot_your_password', default: 'Forgot your password?')
+      .pull-right
+        = link_to 'Home', root_path
   .panel-body
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: "form" }) do |f|
       .form-group
