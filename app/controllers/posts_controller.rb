@@ -3,8 +3,7 @@ class PostsController < ApplicationController
 
   def index
     if params[:category_id] 
-      id = params[:category_id]  
-      @posts = Post.where(category_id: id)
+      @posts = Post.where(category_id: params[:category_id])
     else
       @posts = Post.all
     end

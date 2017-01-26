@@ -1,4 +1,4 @@
-nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+nav.navbar.navbar-inverse.navbar-fixed-top
   .container
     .navbar-header
       button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
@@ -6,8 +6,8 @@ nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      .navbar-brand 
-        = link_to 'Advert Board', root_path
+      a.navbar-brand
+        = link_to image_tag("original/logo.png", size: "150x50"), root_path
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         - if user_signed_in?
@@ -25,8 +25,6 @@ nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
             li.divider role="separator" 
             li
               = link_to 'View All', root_path
-                
-
         - unless user_signed_in?
           li
             = link_to 'Sign In', new_user_session_path
