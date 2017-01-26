@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @posts = Post.all
+    if params[:category_id] 
+      id = params[:category_id]  
+      @posts = Post.where(category_id: id)
+    else
+      @posts = Post.all
+    end
   end
 
   def new

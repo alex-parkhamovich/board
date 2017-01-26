@@ -3,8 +3,6 @@
   .panel-heading
     h4
       = t('.resend_confirmation_instructions', default: 'Resend confirmation instructions')
-      .pull-right
-        = link_to 'Home', root_path
   .panel-body
     = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, role: 'form' }) do |f|
       .form-group

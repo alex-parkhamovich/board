@@ -17,3 +17,7 @@
 .byebug_history
 
 /public/system
+
+/*/.DS_Store
+/app/assets/.DS_store
+.DS_Store
