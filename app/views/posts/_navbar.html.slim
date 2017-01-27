@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse.navbar-fixed-top
+nav.navbar.navbar-inverse
   .container
     .navbar-header
       button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
@@ -12,7 +12,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       ul.nav.navbar-nav
         - if user_signed_in?
           li
-            = link_to 'New Post', new_post_path 
+            = link_to 'New Post', new_post_path  
       ul.nav.navbar-nav.navbar-right
         li.dropdown
           a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
