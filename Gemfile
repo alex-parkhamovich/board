@@ -13,6 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 
 gem 'devise'
+gem 'cancan'
+gem 'rolify'
+
 gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
@@ -27,6 +30,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'pry'
+gem 'rubocop'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
