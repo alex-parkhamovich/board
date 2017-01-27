@@ -12,6 +12,8 @@ nav.navbar.navbar-inverse
       ul.nav.navbar-nav
         - if user_signed_in?
           li
+            = link_to 'Profile', profile_path(current_user)
+          li
             = link_to 'New Post', new_post_path  
       ul.nav.navbar-nav.navbar-right
         li.dropdown
