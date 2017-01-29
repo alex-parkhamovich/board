@@ -1,7 +1,5 @@
 class Profile::ApplicationController < ApplicationController
+  before_action :authenticate_user!
+  
   layout 'profile'
-
-  def index
-    @user = User.find(current_user)
-  end
 end

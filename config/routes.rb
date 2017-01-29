@@ -3,12 +3,11 @@ Rails.application.routes.draw do
   resources :posts
   
   namespace :profile do
-    root 'profiles#index'
+    root 'posts#index'
 
     resources :categories, only: [:index]
-    resources :profiles, only: [] do
-      get :categories
-    end
+    resources :users, only: [:index] 
+    resources :posts, only: [:index] 
   end
 
   resources :categories

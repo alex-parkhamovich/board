@@ -1,8 +1,8 @@
 h4.text-center
-  = @user.email
+  = current_user.email
 li
   = link_to 'Categories Manager', profile_categories_path, class: "btn btn-default"
 li 
-  = link_to 'Users Manager', root_path, class: "btn btn-default"
+  = link_to 'Users Manager', profile_users_path, class: "btn btn-default"
 li
-  = link_to 'Posts Manager', root_path, class: "btn btn-default"
+  = link_to 'Posts Manager', profile_posts_path, class: "btn btn-default"
