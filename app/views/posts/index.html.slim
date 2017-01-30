@@ -1,11 +1,18 @@
+= search_form_for @search do |f|
+  .input-group
+    = f.collection_select :category_id_eq, Category.all, :id, :title, class: 'form-control'
+    = f.text_field :description_cont, class: 'form-control', placeholder: "Search by description"
+    span.input-group-btn
+      = f.submit 'Go!', class: 'btn btn-default'
+
 .table-responsive
   table.table.table-bordered.table-striped
     thead
       tr
         th.col-xs-2.text-center Photo
-        th.col-xs-3.text-center Title
-        th.col-xs-2.text-center Price
-        th.col-xs-1.text-center Published at
+        th.col-xs-3.text-center= sort_link @search, :title, 'Title'
+        th.col-xs-2.text-center= sort_link @search, :price, 'Price'
+        th.col-xs-1.text-center= sort_link @search, :created_at, 'Published at'
     tbody
       - @posts.each do |post|
         - if post.status == 'new'
