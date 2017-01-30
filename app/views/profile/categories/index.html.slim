@@ -1,14 +1,14 @@
 - if current_user.has_role? :admin
   .table-responsive
-  table.table.table-bordered.table-striped
-    thead
-      tr
-        th.col-xs-3.text-center Category Title
-        th.col-xs-3.text-center 
-    tbody
-      - @categories.each do |category|
+    table.table.table-bordered.table-striped
+      thead
         tr
-          td.text-center= category.title
-          td.text-center= link_to 'Edit', root_path, class: "btn btn-success"
+          th.col-xs-3.text-center Category Title
+          th.col-xs-3.text-center= link_to 'New Category', root_path, class: "btn btn-success"
+      tbody
+        - @categories.each do |category|
+          tr
+            td.text-center= category.title
+            td.text-center= link_to 'Edit', root_path, class: "btn btn-success"
 - else
   | Permission denied. Please authenticate with correct user.
