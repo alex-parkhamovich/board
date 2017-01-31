@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     root 'posts#index'
 
     resources :categories, only: [:index, :new, :edit, :create, :update]
-    resources :users, only: [:index] do
-      get :posts
-    end
+    resources :users, only: [:index, :show]
     resources :posts, only: [:index]
   end
 

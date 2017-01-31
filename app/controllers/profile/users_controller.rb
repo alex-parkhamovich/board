@@ -4,7 +4,7 @@ class Profile::UsersController < Profile::ApplicationController
     @users = User.all
   end
 
-  def posts
+  def show
     @posts = Post.all.where(user_id: params[:id])
   end
 end
