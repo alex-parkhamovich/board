@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   namespace :profile do
     root 'posts#index'
 
-    resources :categories, only: [:index]
+    resources :categories, only: [:index, :new, :edit, :create]
     resources :users, only: [:index] 
-    resources :posts, only: [:index] 
+    resources :posts, only: [:index]
   end
 
   resources :categories

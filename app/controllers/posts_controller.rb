@@ -3,12 +3,11 @@ class PostsController < ApplicationController
 
   def index
     @search = Post.search(params[:q])
-    @posts = @search.result
-    # if params[:category_id]
-    #   @posts = Post.where(category_id: params[:category_id])
-    # else
-    #   @posts = Post.all
-    # end
+    if params[:category_id]
+      @posts = @search.result.where(category_id: params[:category_id])
+    else
+      @posts = @search.result
+    end
   end
 
   def new

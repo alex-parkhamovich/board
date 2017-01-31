@@ -4,7 +4,7 @@
       thead
         tr
           th.col-xs-3.text-center Category Title
-          th.col-xs-3.text-center= link_to 'New Category', root_path, class: "btn btn-success"
+          th.col-xs-3.text-center= link_to 'New Category', new_profile_category_path, class: "btn btn-success"
       tbody
         - @categories.each do |category|
           tr

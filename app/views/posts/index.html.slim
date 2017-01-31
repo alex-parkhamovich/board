@@ -1,9 +1,8 @@
 = search_form_for @search do |f|
   .input-group
-    = f.collection_select :category_id_eq, Category.all, :id, :title, class: 'form-control'
-    = f.text_field :description_cont, class: 'form-control', placeholder: "Search by description"
+    = f.text_field :description_cont, class: 'form-control', placeholder: "Search..."
     span.input-group-btn
-      = f.submit 'Go!', class: 'btn btn-default'
+      = f.submit 'Search', class: 'btn btn-default'
 
 .table-responsive
   table.table.table-bordered.table-striped
@@ -21,6 +20,3 @@
             td.text-center= link_to post.title, post, class: "h2"
             td.text-center= link_to post.price, post, class: "btn btn-success"
             td.h5.text-center= post.created_at.strftime("%B, %d, %Y")
-
-
-
