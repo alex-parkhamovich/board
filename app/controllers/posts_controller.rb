@@ -2,10 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    if params[:category_id] 
-      @posts = Post.where(category_id: params[:category_id])
+    @search = Post.search(params[:q])
+    if params[:category_id]
+      @posts = @search.result.where(category_id: params[:category_id])
     else
-      @posts = Post.all
+      @posts = @search.result
     end
   end
 
@@ -24,6 +25,20 @@ class PostsController < ApplicationController
       redirect_to root_path
     else 
       render 'new'
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+ 
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
     end
   end
 

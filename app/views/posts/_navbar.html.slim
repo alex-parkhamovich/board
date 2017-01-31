@@ -6,13 +6,14 @@ nav.navbar.navbar-inverse
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand
-        = link_to image_tag("original/logo.png", size: "150x50"), root_path
+      a.navbar-brand= link_to image_tag("original/logo.png", size: "150x50"), root_path
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         - if user_signed_in?
           li
-            = link_to 'New Post', new_post_path  
+            = link_to 'Profile', profile_root_path
+          li
+            = link_to 'New Post', new_post_path
       ul.nav.navbar-nav.navbar-right
         li.dropdown
           a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 

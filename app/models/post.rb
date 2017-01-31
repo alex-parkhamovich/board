@@ -1,4 +1,27 @@
 class Post < ApplicationRecord
+  include AASM
+
+  aasm :column => 'status' do
+    state :new, :initial => true
+    state :pending_review, :rejected, :published, :archived
+
+    event :review do
+      transitions :from => [:new, :archive], :to => :pending_review
+    end
+
+    event :reject do
+      transitions :from => :pending_review, :to => :rejected
+    end
+
+    event :publish do
+      transitions :from => :pending_review, :to => :published
+    end
+
+    event :archive do
+      transitions :from => [:new, :pending_review, :rejected, :published], :to => :achived
+    end
+  end
+
   belongs_to :user
   belongs_to :category
 

@@ -1,19 +1,23 @@
+.well
+  = search_form_for @search do |f|
+    .input-group
+      = f.text_field :description_cont, class: 'form-control', placeholder: "Search..."
+      span.input-group-btn
+        = f.submit 'Search', class: 'btn btn-default'
+
 .table-responsive
   table.table.table-bordered.table-striped
     thead
       tr
         th.col-xs-2.text-center Photo
-        th.col-xs-3.text-center Title
-        th.col-xs-2.text-center Price
-        th.col-xs-1.text-center Published at
+        th.col-xs-3.text-center= sort_link @search, :title, 'Title'
+        th.col-xs-2.text-center= sort_link @search, :price, 'Price'
+        th.col-xs-1.text-center= sort_link @search, :created_at, 'Published at'
     tbody
       - @posts.each do |post|
         - if post.status == 'new'
           tr
             td.text-center= link_to image_tag(post.photo, size: "150x150"), post
             td.text-center= link_to post.title, post, class: "h2"
-            td.text-center= link_to post.price, post, class: "btn btn-success"
+            td.text-center= post.price
             td.h5.text-center= post.created_at.strftime("%B, %d, %Y")
-
-
-

@@ -1,0 +1,16 @@
+- if current_user.has_role? :admin
+  .table-responsive
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th.col-xs-2.text-center Photo
+          th.col-xs-3.text-center Email
+          th.col-xs-2.text-center
+      tbody
+        - @users.each do |user|
+          tr
+            td.text-center Users Photo
+            td.text-center= user.email
+            td.text-center= link_to 'Users posts', profile_user_path(user.id), class: "btn btn-success"
+- else
+  | Permission denied. Please authenticate with correct user.
