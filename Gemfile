@@ -22,6 +22,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'simple_form'
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 gem 'ransack'
+gem 'aasm'
 
 gem 'slim'
 gem 'slim-rails'

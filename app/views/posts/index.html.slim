@@ -1,8 +1,9 @@
-= search_form_for @search do |f|
-  .input-group
-    = f.text_field :description_cont, class: 'form-control', placeholder: "Search..."
-    span.input-group-btn
-      = f.submit 'Search', class: 'btn btn-default'
+.well
+  = search_form_for @search do |f|
+    .input-group
+      = f.text_field :description_cont, class: 'form-control', placeholder: "Search..."
+      span.input-group-btn
+        = f.submit 'Search', class: 'btn btn-default'
 
 .table-responsive
   table.table.table-bordered.table-striped
@@ -18,5 +19,5 @@
           tr
             td.text-center= link_to image_tag(post.photo, size: "150x150"), post
             td.text-center= link_to post.title, post, class: "h2"
-            td.text-center= link_to post.price, post, class: "btn btn-success"
+            td.text-center= post.price
             td.h5.text-center= post.created_at.strftime("%B, %d, %Y")
