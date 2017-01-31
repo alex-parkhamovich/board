@@ -11,6 +11,6 @@
           tr
             td.text-center Users Photo
             td.text-center= user.email
-            td.text-center= link_to 'Users posts', root_path, class: "btn btn-success"
+            td.text-center= link_to 'Users posts', profile_user_posts_path(user.id), class: "btn btn-success"
 - else
   | Permission denied. Please authenticate with correct user.
