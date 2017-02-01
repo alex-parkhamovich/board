@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   def index
     @search = Post.search(params[:q])
     if params[:category_id]
-      @posts = @search.result.where(category_id: params[:category_id])
+      @posts = @search.result.where(category_id: params[:category_id], status: 'published')
     else
-      @posts = @search.result
+      @posts = @search.result.where(status: 'published')
     end
   end
 
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def publish
+  def review
     @post = Post.where(id: params[:post_id]).first
     @post.review!
 
@@ -52,6 +52,20 @@ class PostsController < ApplicationController
   def archive
     @post = Post.where(id: params[:post_id]).first
     @post.archive!
+
+    redirect_to profile_posts_path
+  end
+
+  def publish
+    @post = Post.where(id: params[:post_id]).first
+    @post.publish!
+
+    redirect_to profile_posts_path
+  end
+
+  def reject
+    @post = Post.where(id: params[:post_id]).first
+    @post.reject!
 
     redirect_to profile_posts_path
   end

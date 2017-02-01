@@ -16,9 +16,15 @@
           td.text-center= post.status
           td.text-center
             .list-group
-              - if post.may_review?
-                = link_to 'Publish', post_publish_path(post.id), method: :put, class: "list-group-item list-group-item-success"
-              - if post.may_edit?
-                = link_to 'Edit', edit_post_path(post.id), class: "list-group-item list-group-item-warning"
-              - if post.may_archive?
-                = link_to 'Archive', post_archive_path(post.id), method: :put, class: "list-group-item list-group-item-danger"
+              - if current_user.has_role? 'admin'
+                - if post.may_publish?
+                  = link_to 'Publish', post_publish_path(post.id), method: :put, class: "list-group-item list-group-item-success"
+                - if post.may_reject?
+                  = link_to 'Reject', post_reject_path(post.id), method: :put, class: "list-group-item list-group-item-danger"
+              - else
+                - if post.may_review?
+                  = link_to 'Review', post_review_path(post.id), method: :put, class: "list-group-item list-group-item-success"
+                - if post.may_edit?
+                  = link_to 'Edit', edit_post_path(post.id), class: "list-group-item list-group-item-warning"
+                - if post.may_archive?
+                  = link_to 'Archive', post_archive_path(post.id), method: :put, class: "list-group-item list-group-item-danger"

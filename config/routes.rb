@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :posts do 
-    put :publish, :archive
+    put :publish, :archive, :reject, :review
   end
   
   namespace :profile do

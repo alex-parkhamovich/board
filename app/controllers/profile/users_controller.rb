@@ -5,6 +5,6 @@ class Profile::UsersController < Profile::ApplicationController
   end
 
   def show
-    @posts = Post.all.where(user_id: params[:id])
+    @posts = Post.all.where(user_id: params[:id], status: 'pending_review')
   end
 end
