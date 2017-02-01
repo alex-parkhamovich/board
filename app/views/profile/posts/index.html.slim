@@ -5,16 +5,20 @@
         th.col-xs-2.text-center Photo
         th.col-xs-3.text-center Title
         th.col-xs-2.text-center Price
+        th.col-xs-2.text-center Status
         th.col-xs-1.text-center 
     tbody
       - @posts.each do |post|
-        - if post.status == 'new'
-          tr
-            td.text-center= link_to image_tag(post.photo, size: "150x150"), post
-            td.text-center= link_to post.title, post, class: "h2"
-            td.text-center= post.price
-            td.text-center
-              ul
-                li= link_to 'Publish', root_path, class: "btn btn-success"
-                li= link_to 'Edit', root_path, class: "btn btn-warning"
-                li= link_to 'Archive', root_path, class: "btn btn-danger"
+        tr
+          td.text-center= link_to image_tag(post.photo, size: "150x150"), post
+          td.text-center= link_to post.title, post, class: "h2"
+          td.text-center= post.price
+          td.text-center= post.status
+          td.text-center
+            .list-group
+              - if post.may_review?
+                = link_to 'Publish', post_publish_path(post.id), method: :put, class: "list-group-item list-group-item-success"
+              - if post.may_edit?
+                = link_to 'Edit', edit_post_path(post.id), class: "list-group-item list-group-item-warning"
+              - if post.may_archive?
+                = link_to 'Archive', post_archive_path(post.id), method: :put, class: "list-group-item list-group-item-danger"

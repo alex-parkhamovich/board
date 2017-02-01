@@ -6,7 +6,7 @@ class Post < ApplicationRecord
     state :pending_review, :rejected, :published, :archived
 
     event :review do
-      transitions :from => [:new, :archive], :to => :pending_review
+      transitions :from => [:new, :archived], :to => :pending_review
     end
 
     event :reject do
@@ -18,7 +18,11 @@ class Post < ApplicationRecord
     end
 
     event :archive do
-      transitions :from => [:new, :pending_review, :rejected, :published], :to => :achived
+      transitions :from => [:new, :pending_review, :rejected, :published], :to => :archived
+    end
+
+    event :edit do
+      transitions :from => [:new, :pending_review, :rejected, :archived, :published], :to => :new
     end
   end
 

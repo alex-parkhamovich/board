@@ -34,16 +34,30 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
- 
-    if @post.update(post_params)
-      redirect_to @post
+    @post.edit!
+    if @post.update(post_params)      
+      redirect_to profile_posts_path
     else
       render 'edit'
     end
   end
 
+  def publish
+    @post = Post.where(id: params[:post_id]).first
+    @post.review!
+
+    redirect_to profile_posts_path
+  end
+
+  def archive
+    @post = Post.where(id: params[:post_id]).first
+    @post.archive!
+
+    redirect_to profile_posts_path
+  end
+
   private
     def post_params
-      params.require(:post).permit(:title, :price, :description, :deal, :status, :category_id, :photo)
+      params.require(:post).permit(:title, :price, :description, :deal, :category_id, :photo)
     end
 end

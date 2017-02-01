@@ -1,2 +1,3 @@
 h4.text-center= current_user.email
-li= link_to 'My Posts', profile_posts_path, class: "btn btn-default"
+.list-group.text-center
+  = link_to 'My Posts', profile_posts_path, class: "list-group-item"
