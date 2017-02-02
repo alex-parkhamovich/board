@@ -20,7 +20,7 @@ gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'simple_form'
-gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip'
 gem 'ransack'
 gem 'aasm'
 
@@ -30,9 +30,6 @@ gem 'slim-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-
-gem 'pry'
-gem 'rubocop'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -46,6 +43,8 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry'
+  gem 'rubocop'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
