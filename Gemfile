@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://gems.github.com'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -22,7 +22,8 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'simple_form'
 gem 'paperclip'
 gem 'ransack'
-gem 'aasm'
+gem 'aasm', :github => 'aasm'
+gem 'whenever', :require => false
 
 gem 'slim'
 gem 'slim-rails'
