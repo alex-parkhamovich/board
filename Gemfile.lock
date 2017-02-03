@@ -5,7 +5,7 @@ GIT
     aasm (4.11.1)
 
 GEM
-  remote: http://gems.github.com/
+  remote: https://rubygems.org/
   specs:
     actioncable (5.0.1)
       actionpack (= 5.0.1)

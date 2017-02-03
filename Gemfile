@@ -1,4 +1,4 @@
-source 'http://gems.github.com'
+source 'https://rubygems.org'
 
 ruby "2.4.0"
 
