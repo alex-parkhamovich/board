@@ -22,7 +22,7 @@ class Post < ApplicationRecord
     end
 
     event :edit do
-      transitions :from => [:pending_review, :rejected, :archived, :published], :to => :new
+      transitions :from => [:new, :pending_review, :rejected, :archived, :published], :to => :new
     end
   end
 
