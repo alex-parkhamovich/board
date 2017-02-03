@@ -1,17 +1,22 @@
 .table-responsive
   table.table.table-bordered.table-striped
-    thead
+    thead.thead-inverse
       tr
         th.col-xs-2.text-center Photo
         th.col-xs-3.text-center Title
         th.col-xs-2.text-center Price
-        th.col-xs-1.text-center Published at
+        th.col-xs-2.text-center Status
+        th.col-xs-1.text-center 
     tbody
       - @posts.each do |post|
-        - if post.status == 'new'
-          tr
-            td.text-center= link_to image_tag(post.photo, size: "150x150"), post
-            td.text-center= link_to post.title, post, class: "h2"
-            td.text-center= link_to post.price, post, class: "btn btn-success"
-            td.h5.text-center= post.created_at.strftime("%B, %d, %Y")
-            
+        tr
+          td.text-center= link_to image_tag(post.photo, size: "150x150"), post
+          td.text-center= link_to post.title, post, class: "h2"
+          td.text-center= post.price
+          td.text-center= post.status
+          td.text-center
+            .list-group
+              - if post.may_publish?
+                = link_to 'Publish', post_publish_path(post.id), method: :put, class: "list-group-item list-group-item-success"
+              - if post.may_reject?
+                = link_to 'Reject', post_reject_path(post.id), method: :put, class: "list-group-item list-group-item-danger"

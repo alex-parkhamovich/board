@@ -21,3 +21,6 @@
 /*/.DS_Store
 /app/assets/.DS_store
 .DS_Store
+
+/cron.log
+/error.log

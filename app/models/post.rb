@@ -6,7 +6,7 @@ class Post < ApplicationRecord
     state :pending_review, :rejected, :published, :archived
 
     event :review do
-      transitions :from => [:new, :archive], :to => :pending_review
+      transitions :from => [:new, :archived], :to => :pending_review
     end
 
     event :reject do
@@ -18,7 +18,11 @@ class Post < ApplicationRecord
     end
 
     event :archive do
-      transitions :from => [:new, :pending_review, :rejected, :published], :to => :achived
+      transitions :from => [:new, :pending_review, :rejected, :published], :to => :archived
+    end
+
+    event :edit do
+      transitions :from => [:new, :pending_review, :rejected, :archived, :published], :to => :new
     end
   end
 
@@ -27,4 +31,14 @@ class Post < ApplicationRecord
 
   has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "original/missing.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+
+  def self.arch
+    # @posts = Post.where("status = ? and updated_at < ?", 'published', 1.day.ago)
+    @posts = Post.where("status = ?", 'published')
+    @posts.each do |post|
+      if post.may_archive?
+        post.archive!
+      end
+    end
+  end
 end

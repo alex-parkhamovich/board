@@ -1,8 +1,5 @@
-h4.text-center
-  = current_user.email
-li
-  = link_to 'Categories Manager', profile_categories_path, class: "btn btn-default"
-li 
-  = link_to 'Users Manager', profile_users_path, class: "btn btn-default"
-li
-  = link_to 'Posts Manager', profile_posts_path, class: "btn btn-default"
+h4.text-center= current_user.email
+.list-group.text-center
+  = link_to 'Categories Manager', profile_categories_path, class: "list-group-item"
+  = link_to 'Users Manager', profile_users_path, class: "list-group-item"
+  = link_to 'Posts Manager', profile_posts_path, class: "list-group-item"

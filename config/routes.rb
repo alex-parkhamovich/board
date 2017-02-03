@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts
+  resources :posts do 
+    put :publish, :archive, :reject, :review
+  end
   
   namespace :profile do
     root 'posts#index'
