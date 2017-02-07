@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.edit!
-    if @post.update(post_params)      
+    if @post.update(post_params)
       redirect_to profile_posts_path
     else
       render 'edit'
@@ -78,6 +78,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :price, :description, :deal, :category_id, :photo, :comment)
+      params.require(:post).permit(:title, :price, :description, :deal, :category_id, :photo)
     end
 end
