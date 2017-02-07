@@ -19,4 +19,4 @@
               - if post.may_publish?
                 = link_to 'Publish', post_publish_path(post.id), method: :put, class: "list-group-item list-group-item-success"
               - if post.may_reject?
-                = link_to 'Reject', post_reject_path(post.id), method: :put, class: "list-group-item list-group-item-danger"
+                = link_to 'Reject', post_reject_path(post.id), class: "list-group-item list-group-item-danger"
