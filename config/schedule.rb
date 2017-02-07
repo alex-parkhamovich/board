@@ -1,5 +1,5 @@
 set :output, { error: 'error.log', standard: 'cron.log' }
 
-every 2.minutes do
-  runner "Post.arch"
+every 1.minutes do
+  runner "Post.daily_archive"
 end
