@@ -1,5 +1,7 @@
-h4.text-center= current_user.email
-.list-group.text-center
-  = link_to 'Categories Manager', profile_categories_path, class: "list-group-item"
-  = link_to 'Users Manager', profile_users_path, class: "list-group-item"
-  = link_to 'Posts Manager', profile_posts_path, class: "list-group-item"
+.text-center
+  = image_tag current_user.avatar, size: "100x100"
+  h4= current_user.email
+  .list-group
+    = link_to 'Categories Manager', profile_categories_path, class: "list-group-item"
+    = link_to 'Users Manager', profile_users_path, class: "list-group-item"
+    = link_to 'Posts Manager', profile_posts_path, class: "list-group-item"
