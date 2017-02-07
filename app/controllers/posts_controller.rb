@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     else
       @posts = @search.result.where(status: 'published')
     end
+    @posts = @posts.page(params[:page]).per(4)
   end
 
   def new

@@ -22,3 +22,5 @@
           td.text-center= post.price
           td.text-center= post.deal
           td.h5.text-center= post.created_at.strftime("%B, %d, %Y")
+.text-center
+  = paginate @posts, :theme => 'twitter-bootstrap-3'

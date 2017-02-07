@@ -26,6 +26,8 @@ gem 'paperclip'
 gem 'ransack'
 gem 'aasm', :github => 'aasm/aasm'
 gem 'whenever', :require => false
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 gem 'slim'
 gem 'slim-rails'
