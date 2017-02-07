@@ -5,6 +5,8 @@ class Post < ApplicationRecord
     state :new, :initial => true
     state :pending_review, :rejected, :published, :archived
 
+    after_all_transitions :log_status_change
+
     event :review do
       transitions :from => [:new, :archived], :to => :pending_review
     end
@@ -31,6 +33,10 @@ class Post < ApplicationRecord
 
   has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "original/missing.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+
+  def log_status_change
+    puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
+  end
 
   def self.daily_archive
     # @posts = Post.where("status = ? and updated_at < ?", 'published', 1.day.ago)

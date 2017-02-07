@@ -12,7 +12,7 @@
         tr
           td.text-center= link_to image_tag(post.photo, size: "150x150"), post
           td.text-center= link_to post.title, post, class: "h2"
-          td.text-center= post.price
+          td.text-center= "$ #{post.price}"
           td.text-center= post.status
           td.text-center
             .list-group
