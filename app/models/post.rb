@@ -5,7 +5,7 @@ class Post < ApplicationRecord
     state :new, :initial => true
     state :pending_review, :rejected, :published, :archived
 
-    after_all_transitions :log_status_change
+    after_all_transitions :before_save
 
     event :review do
       transitions :from => [:new, :archived], :to => :pending_review
@@ -35,7 +35,11 @@ class Post < ApplicationRecord
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   def log_status_change
-    puts "changing from #{aasm.from_state} to #{aasm.to_state} (event: #{aasm.current_event})"
+    @@status_log ||= Logger.new("#{Rails.root}/log/my.log")
+  end
+
+  def before_save
+    log_status_change.info("Changing post #{self.id} status from #{aasm.from_state} to #{aasm.to_state} at #{Time.now}.")
   end
 
   def self.daily_archive
