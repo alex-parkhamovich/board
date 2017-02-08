@@ -33,6 +33,8 @@ class Post < ApplicationRecord
 
   has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "original/missing.png"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+  validates :title, :category, :price, :description, :photo, :deal, presence: true
+  validates :price, numericality: { greater_than: 0, less_than: 10000 }
 
   def log_status_change
     @@status_log ||= Logger.new("#{Rails.root}/log/my.log")
