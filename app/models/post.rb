@@ -39,7 +39,7 @@ class Post < ApplicationRecord
   end
 
   def before_save
-    log_status_change.info("Changing post #{self.id} status from #{aasm.from_state} to #{aasm.to_state} at #{Time.now}.")
+    log_status_change.info("Changing post №#{self.id} status from #{aasm.from_state} to #{aasm.to_state} at #{Time.now}.")
   end
 
   def self.daily_archive
