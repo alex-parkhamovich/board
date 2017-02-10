@@ -1,5 +1,5 @@
 .text-center
   = image_tag current_user.avatar, size: "100x100"
-  h4= current_user.email
+  h4= current_user.name
   .list-group
     = link_to 'My Posts', profile_posts_path, class: "list-group-item"

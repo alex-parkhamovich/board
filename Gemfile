@@ -18,6 +18,10 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
+
 gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'sprockets-rails', :require => 'sprockets/railtie'

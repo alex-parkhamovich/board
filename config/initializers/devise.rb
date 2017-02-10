@@ -245,9 +245,9 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
-  # Add a new OmniAuth provider. Check the wiki for more information on setting
-  # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, "777321132432468", "1f88a06dfa353f52caf184b5ede4f3bc"
+  config.omniauth :twitter, "m6GTQxRjOmdwz0tqkVuJvMuU9", "0fv5cFfpnsf1mCttVgFOpfsCIwhGITM3xiaPJhZF50e3PzuWug"
+  config.omniauth :vkontakte, "5853063", "3YN3fptwRS1DlGNf2s6g"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
