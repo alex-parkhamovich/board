@@ -1,8 +1,8 @@
 = simple_form_for @post, html: { class: 'form-horizontal' } do |f| 
-  = f.association :category
+  = f.association :category, input_html: {id: "categorySelect"}
   = f.input :title
   = f.input :price
   = f.input :description, as: :text, :input_html => { :cols => 50, :rows => 10 }
   = f.input :photo
-  = f.input :deal, collection: ['Sale', 'Purchase', 'Exchange', 'Rent', 'Service']
+  = f.input :deal, collection: ['Sale', 'Purchase', 'Exchange', 'Rent', 'Service'], input_html: {id: "dealSelect"}
   = f.button :submit, class: "btn btn-primary"

@@ -51,6 +51,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
   gem 'vcr'
+  gem 'launchy'
 end
 
 group :test do
