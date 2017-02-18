@@ -1,2 +1,7 @@
-.well
+.center-block.col-md-6 style=("float: none;")
+  h4.text-center Edit Post
+  - if @post.comment?
+    .alert.alert-warning
+      h5 Reject details:
+      = @post.comment
   = render 'form'

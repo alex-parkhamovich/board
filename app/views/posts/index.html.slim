@@ -13,12 +13,14 @@
         th.col-xs-3.text-center= sort_link @search, :title, 'Title'
         th.col-xs-2.text-center= sort_link @search, :price, 'Price'
         th.col-xs-2.text-center= sort_link @search, :deal, 'Deal'
-        th.col-xs-1.text-center= sort_link @search, :created_at, 'Published at'
+        th.col-xs-1.text-center= sort_link @search, :updated_at, 'Published at'
     tbody
       - @posts.each do |post|
         tr
           td.text-center= link_to image_tag(post.photo, size: "150x150"), post
           td.text-center= link_to post.title, post, class: "h2"
-          td.text-center= post.price
+          td.text-center= "$ #{post.price}"
           td.text-center= post.deal
-          td.h5.text-center= post.created_at.strftime("%B, %d, %Y")
+          td.h5.text-center= post.updated_at.strftime("%B, %d, %Y")
+.text-center
+  = paginate @posts, :theme => 'twitter-bootstrap-3'

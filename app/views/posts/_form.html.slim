@@ -1,11 +1,8 @@
 = simple_form_for @post, html: { class: 'form-horizontal' } do |f| 
-  = f.association :category
-  = f.input :title, required: true
-  = f.input :price, input_html: { max: 6 } 
-  = f.input :description, as: :text, :input_html => { :cols => 50, :rows => 10 }, required: true
-  = f.input :photo, as: :file
-  = f.input :deal, collection: ['Sale', 'Purchase', 'Exchange', 'Rent', 'Service'],  required: true
-  = f.button :submit 
- 
-
-/ TODO: make requirements and limits
+  = f.association :category, input_html: {id: "categorySelect"}
+  = f.input :title
+  = f.input :price
+  = f.input :description, as: :text, :input_html => { :cols => 50, :rows => 10 }
+  = f.input :photo
+  = f.input :deal, collection: ['Sale', 'Purchase', 'Exchange', 'Rent', 'Service'], input_html: {id: "dealSelect"}
+  = f.button :submit, class: "btn btn-primary"

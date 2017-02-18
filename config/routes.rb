@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :posts do 
-    put :publish, :archive, :reject, :review
+    put :publish, :archive, :review, :comment
+    get :reject
   end
   
   namespace :profile do

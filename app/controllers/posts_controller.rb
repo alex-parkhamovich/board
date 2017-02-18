@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     else
       @posts = @search.result.where(status: 'published')
     end
+    @posts = @posts.page(params[:page]).per(4)
   end
 
   def new
@@ -35,7 +36,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.edit!
-    if @post.update(post_params)      
+    if @post.update(post_params)
       redirect_to profile_posts_path
     else
       render 'edit'
@@ -66,12 +67,17 @@ class PostsController < ApplicationController
   def reject
     @post = Post.where(id: params[:post_id]).first
     @post.reject!
+  end
+
+  def comment
+    @post = Post.where(id: params[:post_id]).first
+    @post.update(post_params)
 
     redirect_to profile_posts_path
   end
 
   private
     def post_params
-      params.require(:post).permit(:title, :price, :description, :deal, :category_id, :photo)
+      params.require(:post).permit(:title, :price, :description, :deal, :category_id, :photo, :comment)
     end
 end

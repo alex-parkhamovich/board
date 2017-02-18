@@ -12,7 +12,7 @@
         tr
           td.text-center= link_to image_tag(post.photo, size: "150x150"), post
           td.text-center= link_to post.title, post, class: "h2"
-          td.text-center= post.price
+          td.text-center= "$ #{post.price}"
           td.text-center= post.status
           td.text-center
             .list-group
@@ -20,7 +20,7 @@
                 - if post.may_publish?
                   = link_to 'Publish', post_publish_path(post.id), method: :put, class: "list-group-item list-group-item-success"
                 - if post.may_reject?
-                  = link_to 'Reject', post_reject_path(post.id), method: :put, class: "list-group-item list-group-item-danger"
+                  = link_to 'Reject', post_reject_path(post.id), class: "list-group-item list-group-item-danger"
               - else
                 - if post.may_review?
                   = link_to 'Review', post_review_path(post.id), method: :put, class: "list-group-item list-group-item-success"

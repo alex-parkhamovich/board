@@ -1,7 +1,22 @@
-.row
-  .col-lg-12.well
-    h2.text-center= @post.title
-    img.img-responsive= image_tag(@post.photo, size: "900x300")
-    '
-    p.text-center= @post.description
-    p.text-center= @post.status
+.container
+  .row
+    .center-block.col-md-8 style=("float: none;")
+      h2.text-center= @post.title
+      = image_tag @post.photo, size: "900x300", class: "img img-responsive"
+      h4.text-center Description:
+      p= @post.description
+      .table-responsive
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th.col-xs-2.text-center Status
+              th.col-xs-2.text-center Price
+              th.col-xs-2.text-center User ID
+              th.col-xs-2.text-center Deal
+
+          tbody
+            tr
+              td.text-center= @post.status
+              td.text-center= "$ #{@post.price}"
+              td.text-center= @post.user_id
+              td.text-center= @post.deal
