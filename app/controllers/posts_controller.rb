@@ -44,33 +44,33 @@ class PostsController < ApplicationController
   end
 
   def review
-    @post = Post.where(id: params[:post_id]).first
+    @post = Post.find(params[:post_id])
     @post.review!
 
     redirect_to profile_posts_path
   end
 
   def archive
-    @post = Post.where(id: params[:post_id]).first
+    @post = Post.find(params[:post_id])
     @post.archive!
 
     redirect_to profile_posts_path
   end
 
   def publish
-    @post = Post.where(id: params[:post_id]).first
+    @post = Post.find(params[:post_id])
     @post.publish!
 
     redirect_to profile_posts_path
   end
 
   def reject
-    @post = Post.where(id: params[:post_id]).first
+    @post = Post.find(params[:post_id])
     @post.reject!
   end
 
   def comment
-    @post = Post.where(id: params[:post_id]).first
+    @post = Post.find(params[:post_id])
     @post.update(post_params)
 
     redirect_to profile_posts_path
